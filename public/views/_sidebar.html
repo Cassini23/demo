@@ -1,0 +1,80 @@
+<!-- need this .js class to initiate slimscroll -->
+<div class="js-sidebar-content">
+    <header class="logo hidden-xs">
+        Kiddifieds
+    </header>
+    <!-- seems like lots of recent admin template have this feature of user info in the sidebar.
+         looks good, so adding it and enhancing with notifications -->
+    <div class="sidebar-status visible-xs">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+            New <strong>User</strong>
+            <b class="caret"></b>
+        </a>
+        <!-- #notifications-dropdown-menu goes here when screen collapsed to xs or sm -->
+    </div>
+    <!-- main notification links are placed inside of .sidebar-nav -->
+    <ul class="sidebar-nav">
+        <li>
+            <!-- an example of nested submenu. basic bootstrap collapse component -->
+            <a class="collapsed" data-target="#sidebar-dashboard" data-toggle="collapse" data-parent="#sidebar">
+                    <span class="icon">
+                        <i class="fa fa-desktop"></i>
+                    </span>
+                Dashboard
+                <i class="toggle fa fa-angle-down"></i>
+            </a>
+            <ul id="sidebar-dashboard" class="collapse">
+                <li><a data-ui-sref="app.page({ page: 'search', child: null })">Dashboard</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    <!-- every .sidebar-nav may have a title -->
+    <ul class="sidebar-nav">
+        <li>
+            <!-- an example of nested submenu. basic bootstrap collapse component -->
+            <a class="collapsed" data-target="#sidebar-forms" data-toggle="collapse" data-parent="#sidebar">
+                    <span class="icon">
+                        <i class="glyphicon glyphicon-align-right"></i>
+                    </span>
+                Forms
+                <i class="toggle fa fa-angle-down"></i>
+            </a>
+            <ul id="sidebar-forms" class="collapse">
+                <li><a data-ui-sref="app.page({ page: '_login', child: null })">Log In</a></li>
+                <li><a data-ui-sref="app.page({ page: '_createAdvertisement', child: null })">Create an Ad</a></li>
+                <li><a data-ui-sref="app.page({ page: '_registerSeeker', child: null })">Register</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="collapsed" data-target="#sidebar-maps" data-toggle="collapse" data-parent="#sidebar">
+                    <span class="icon">
+                        <i class="glyphicon glyphicon-map-marker"></i>
+                    </span>
+                Maps
+                <i class="toggle fa fa-angle-down"></i>
+            </a>
+            <ul id="sidebar-maps" class="collapse">
+                <li><a data-ui-sref="app.page({ page: 'maps', child: 'google' })">Google Maps</a></li>
+                <li><a data-ui-sref="app.page({ page: 'maps', child: 'vector' })">Vector Maps</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class="collapsed" data-target="#sidebar-extra" data-toggle="collapse" data-parent="#sidebar">
+                    <span class="icon">
+                        <i class="fa fa-leaf"></i>
+                    </span>
+                Features
+                <i class="toggle fa fa-angle-down"></i>
+            </a>
+            <ul id="sidebar-extra" class="collapse">
+                <li><a data-ui-sref="app.page({ page: '_calendar', child: null })">Calendar <sup class="bg-transparent text-danger fs-sm fw-bold">ng</sup></a></li>
+
+
+            </ul>
+        </li>
+    </ul>
+
+</div>

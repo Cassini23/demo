@@ -1,0 +1,51 @@
+.landing.list{
+    list-style-type: none;
+   /* box-shadow: 5px 5px 5px #888888;*/
+}
+.landing.title{
+    border-bottom: 1px solid grey;
+    text-align: center;
+
+}
+.landing.li{
+    padding: auto;
+}
+.caption.landing{
+    background-color: #beb7ff;
+}
+
+#pulse:hover{
+    -webkit-animation-name: pulser;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 3s;
+    animation: pulser 3s linear 1;
+    padding: 0.3em;
+    margin: 0.3em;
+}
+
+@-webkit-keyframes pulser {
+    0%{
+        -webkit-box-shadow: 0 0 5px #888888;
+    }
+    50%{
+        -webkit-box-shadow: 0 0 10px #888888;
+    }
+    100%{
+        -webkit-box-shadow: 0 0 0 #888888;
+    }
+}
+
+@keyframes pulser {
+    0%{
+        box-shadow: 0 0 5px #888888;
+    }
+
+    50%{
+        box-shadow: 0 0 10px #888888;
+    }
+
+    100%{
+        box-shadow: 0 0 0 #888888;
+    }
+}

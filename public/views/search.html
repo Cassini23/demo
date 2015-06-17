@@ -1,0 +1,63 @@
+<div class="row" data-ng-controller="LandingAppController">
+    <div class="input-group col-lg-6 col-lg-offset-2">
+        <div class="input-group-btn">
+            <select data-ui-jq="select2"
+                    data-placeholder="Select a category"
+                    tabindex="-1" class="select2 form-control">
+                <option value=""></option>
+                <option value=0>All</option>
+                <option value=1>Latest</option>
+                <option value=2>Popular</option>
+                <option value=3>Interesting</option>
+                <option value=4>Business</option>
+            </select>
+        </div> <!-- End of input-group-btn -->
+        <input type="text" class="form-control"  placeholder="Search" ng-model="searchText">
+                <span class="input-group-btn">
+                    <button class="btn btn-inverse base-btn-search" type="button">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </span>
+    </div> <!-- End of input-group -->
+    <div class="help-block col-lg-offset-4">Search our dashboard for the latest...</div>
+
+<!--The search repeat and filter-->
+
+<h4 class="page-title">Meanwhile a few services</h4>
+
+<div >
+    <div class="clearfix mb-lg">
+        <div class="pull-right m-b-20">
+            <div class="btn-group">
+                <span class="btn btn-default" data-ng-class="{'active': order == 'asc'}"
+                      data-ng-click="order = 'asc'"><i class="fa fa-sort-numeric-asc"></i></span>
+                <span class="btn btn-default"  data-ng-class="{'active': order == 'desc'}"
+                      data-ng-click="order = 'desc'"><i class="fa fa-sort-numeric-desc"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row landing" data-ui-jq="magnificPopup"
+         data-sn-gallery data-options="{ itemSelector: '.gallery-item'}"
+         data-ui-options="{ delegate: '.thumbnail > a',  type: 'image', gallery: { enabled: true  } }">
+        <div data-ng-repeat="item in items | filter:searchText" id="pulse"
+             class="col-sm-6 col-md-3 gallery-item" data-groups='{{item.serviceType}}' data-title="{{item.title}}">
+            <div class="caption landing">
+                <h3 class="mt-0 mb-xs landing title">{{item.title}}</h3>
+                <ul class="landing list">
+                    <li>Service type: <small>{{item.serviceType}}</small></li>
+                    <li>Description: <small>{{item.desc}}</small></li>
+                    <li>Price: <small>{{item.price}}</small></li>
+                    <li>Availability: <small>{{item.timeslot}}</small></li>
+                    <li>Provided by: <small>{{item.providerName}}</small></li>
+                    <li>Business: <small>{{item.business}}</small></li>
+                    <li>Address: <small>{{item.address}}</small></li>
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="col-sm-6 col-md-3 js-shuffle-sizer"></div>
+    </div>
+</div>
+</div>

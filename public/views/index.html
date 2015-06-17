@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="singApp">
+<head>
+    <title>Kiddifieds - Dashboard</title>
+    <link href="/stylesheets/application.min.css" rel="stylesheet">
+    <!-- as of IE9 cannot parse css files with more that 4K classes separating in two files -->
+    <!--[if IE 9]>
+    <link href="/stylesheets/application-ie9-part2.css" rel="stylesheet">
+    <![endif]-->
+    <link rel="shortcut icon" href="img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script>
+        /* yeah we need this empty stylesheet here. It's cool chrome & chromium fix
+         chrome fix https://code.google.com/p/chromium/issues/detail?id=167083
+         https://code.google.com/p/chromium/issues/detail?id=332189
+         */
+    </script>
+</head>
+<!-- sn-demo directive enables all functions which are used for demo. e.g. animating notifications count, chat unread messages.
+     to be removed in real app-->
+<body data-ng-controller="SingAppController" data-sn-demo data-ng-class="{'nav-static': app.state['nav-static'], 'login-page': loginPage, 'error-page': errorPage}">
+
+<div class="row">
+    <div id = "nav-search">
+        <div id="nav-bar-left"></div>
+        <form class="nav-searchbar" role="search">
+            <div class="nav-left">
+                =            <div class="nav-search-scope nav-sprite">
+                <div class="nav-search-facade" data-value="search-alias=aps">
+                <span class="nav-search-label" style="width: auto;">
+                    All
+                </span>
+
+                    <i class="nav-icon"></i>
+
+                </div>
+                <select id="searchDropdownBox" class="nav-search-dropdown searchSelect" title="Search in" name="url" data-nav-tabindex="20" data-nav-selected="0" data-nav-digest="ybtU+zjsW+db5e2GwFLnkO9PF58" tabindex="1" style="top: 0px;">
+                    <option value="search-alias=aps" selected="selected"></option>
+                    <option value="search-alias=local-services"></option>
+                    <option value="search-alias=instant-video"></option>
+                    <option value="search-alias=appliances"></option>
+
+                </select>
+            </div>
+            </div>
+
+            <div class="nav-right">
+
+                <div class="nav-search-submit nav-sprite">
+                    <span id="nav-search-submit-text" class="nav-search-submit-text nav-sprite"></span>
+                    <input class="nav-input" type="submit" data-nav-tabindex="22" value="Go" tabindex="1"/>
+
+                </div>
+
+            </div>
+            <div class="nav-fill">
+                <div class="nav-search-field">
+                    <input id="twotabsearchtextbox" class="nav-input" type="text" data-nav-tabindex="21" autocomplete="off" name="field-keywords" value="" tabindex="1"/>
+                </div>
+                <div id="nav-iss-attach"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="app" id="app" data-ui-view></div>
+
+
+
+<!-- common libraries. required for every page-->
+
+<!-- include jquery BEFORE angular so $(el).html() may resolve scripts. see http://stackoverflow.com/a/12200540/1298418 -->
+<script src="/jquery/dist/jquery.min.js"></script>
+
+<script src="/angular/angular.min.js"></script>
+<script src="/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/ngstorage/ngStorage.min.js"></script>
+<script src="/angular-resource/angular-resource.min.js"></script>
+<script src="/angular-ui-utils/event.min.js"></script>
+<script src="/angular-animate/angular-animate.min.js"></script>
+<script src="/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="/angular-bootstrap-select/build/angular-bootstrap-select.min.js"></script>
+
+<!-- page specific angular libs. may be removed -->
+<script src="/datatables/media/js/jquery.dataTables.js"></script>
+<script src="/angular-datatables/dist/angular-datatables.min.js"></script>
+<script src="/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
+<script src="/angular-ui-calendar/src/calendar.js"></script>
+
+
+<!-- common libs. previous bootstrap-sass version was used, but due to a need to have single compiled file using bootstrap's version -->
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/widgster/widgster.js"></script>
+<script data-pace-options='{ "target": ".content-wrap", "ghostTime": 1000 }' src="/pace.js/pace.min.js"></script>
+<script src="/jquery-touchswipe/jquery.touchSwipe.min.js"></script>
+
+
+<!-- common app js -->
+<script src="/javascripts/ng/app.js"></script>
+<script src="/javascripts/ng/controllers.js"></script>
+<script src="/javascripts/ng/controllers.demo.js"></script>
+<script src="/javascripts/ng/services.js"></script>
+<script src="/javascripts/ng/directives.js"></script>
+<script src="/javascripts/ng/directives.demo.js"></script>
+
+<!-- page specific libs -->
+
+</body>
+</html>
