@@ -1,0 +1,61 @@
+[{ title: 'Soccer coach',
+        serviceType: 'Recreational',
+        desc: 'After school soccer training',
+        price: '$14 by hour',
+        timeslot: '4 to 7',
+        providerName: 'Bane C',
+        business: 'N/A',
+        phoneNumber: '5975756456',
+        address:'Menlo Park',
+        Website:'baneccc@yahoo.com'
+    },
+        {
+            title: 'Rashas babysitting service',
+            serviceType: 'Babysitting',
+            desc: 'A baby sitting service',
+            price: '$9 by hour',
+            timeslot: '2 to 10',
+            providerName: 'Rasha Bynes',
+            business: 'N/A',
+            phoneNumber: '6708976541',
+            address:'Redwood city',
+            Website:'rashas@yahoo.com'
+
+        },
+        {
+            title: 'Babysitter',
+            serviceType: 'Babysitting',
+            desc: 'A baby sitting service',
+            price: '$12 by hour',
+            timeslot: '11 to 7',
+            providerName: 'Jenny',
+            business: 'N/A',
+            phoneNumber: '7899324555',
+            address:'Mountain View',
+            Website:'jennygirl@yahoo.com'
+        },
+        {
+            title: 'Eclectic school of music',
+            serviceType: 'Music',
+            desc: 'After school music classes',
+            price: '$14 by hour',
+            timeslot: '4 to 8',
+            providerName: 'Miriam F',
+            business: 'Eclectic school of music',
+            phoneNumber: '5975756456',
+            address:'Mountain View',
+            Website:'schoolofmusic@gmail.com'
+        },
+        {
+            title: 'Dentist',
+            serviceType: 'Healthcare',
+            desc: 'Let me check your teeth',
+            price: '$24 by hour',
+            timeslot: '2 to 5',
+            providerName: 'Bane C',
+            business: 'N/A',
+            phoneNumber: '5975756456',
+            address:'Menlo Park',
+            Website:'baneccc@yahoo.com'
+        }
+    ];

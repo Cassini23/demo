@@ -17,11 +17,14 @@
 #pulse:hover{
     -webkit-animation-name: pulser;
     -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease-in-out;
-    -webkit-animation-duration: 3s;
-    animation: pulser 3s linear 1;
-    padding: 0.3em;
-    margin: 0.3em;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    animation: pulser 1s linear 1;
+
+}
+#pulse{
+    padding: 0.15em;
+    width: 300px;
 }
 
 @-webkit-keyframes pulser {
@@ -29,7 +32,7 @@
         -webkit-box-shadow: 0 0 5px #888888;
     }
     50%{
-        -webkit-box-shadow: 0 0 10px #888888;
+        -webkit-box-shadow: 0 0 10px #888888, 0 0 10px #888888;
     }
     100%{
         -webkit-box-shadow: 0 0 0 #888888;
@@ -42,7 +45,7 @@
     }
 
     50%{
-        box-shadow: 0 0 10px #888888;
+        box-shadow: 0 0 10px #888888, 0 0 10px #888888;
     }
 
     100%{

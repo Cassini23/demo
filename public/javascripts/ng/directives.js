@@ -659,7 +659,31 @@ appDirectives.directive('bootstrapWizard', ['scriptLoader', function(scriptLoade
     }
 }]);
 
+/* ========================================================================
+ * Range value directive
+ * ========================================================================
+ */
 
+appDirectives.directive('rangeChange', function() {
+    return {
+        restrict: 'A',
+        scope:{'onChange':'=' },
+        link: function(scope, elem, attrs) {
+            scope.$watch('onChange', function(range) { elem.val(range); });
+            elem.bind('blur', function() {
+                var currentValue = elem.val();
+                if( scope.onChange !== currentValue ) {
+                    scope.$apply(function() {
+                        scope.onChange = currentValue;
+                    });
+                }
+            });
+        }
+    };
+});
+
+
+/***The directive on change on range element in the advanced searcg***/
 /**
  * Flatlogic comment:
  * Here goes an extension to jQuery Passthrough(http://angular-ui.github.io/ui-utils/) plugin.

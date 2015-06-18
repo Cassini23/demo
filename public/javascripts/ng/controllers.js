@@ -265,177 +265,8 @@ appControllers.controller('SingAppController', ['$scope', '$localStorage',functi
 
 /***Landing controller editor: Nina**/
 
-appControllers.controller('LandingAppController', ['$scope', function ($scope) {
-    /*
-     $scope.items = [
-     {
-     "name":"Mountains",
-     "groups":[
-     "nature"
-     ],
-     "src":"demo/img/pictures/1.jpg",
-     "date":"10 mins"
-     },
-     {
-     "name":"Empire State Pigeon",
-     "groups":[
-     "people"
-     ],
-     "src":"demo/img/pictures/2.jpg",
-     "date":"1 hour",
-     "like": true
-     },
-     {
-     "name":"Big Lake",
-     "groups":[
-     "nature"
-     ],
-     "src":"demo/img/pictures/3.jpg",
-     "date":"2 mins",
-     "like": true
-     },
-     {
-     "name":"Forest",
-     "groups":[
-     "nature"
-     ],
-     "src":"demo/img/pictures/4.jpg",
-     "date":"2 mins",
-     "like": true
-     },
-     {
-     "name":"Smile",
-     "groups":[
-     "people"
-     ],
-     "src":"demo/img/pictures/5.jpg",
-     "date":"2 mins"
-     },
-     {
-     "name":"Smile",
-     "groups":[
-     "people"
-     ],
-     "src":"demo/img/pictures/6.jpg",
-     "date":"1 hour",
-     "like": true
-     },
-     {
-     "name":"Fog",
-     "groups":[
-     "nature"
-     ],
-     "src":"demo/img/pictures/8.jpg",
-     "date":"2 mins",
-     "like": true
-     },
-     {
-     "name":"Beach",
-     "groups":[
-     "people"
-     ],
-     "src":"demo/img/pictures/9.jpg",
-     "date":"2 mins"
-     },
-     {
-     "name":"Pause",
-     "groups":[
-     "people"
-     ],
-     "src":"demo/img/pictures/10.jpg",
-     "date":"3 hour",
-     "like": true
-     },
-     {
-     "name":"Space",
-     "groups":[
-     "space"
-     ],
-     "src":"demo/img/pictures/11.jpg",
-     "date":"3 hour",
-     "like": true
-     },
-     {
-     "name":"Shuttle",
-     "groups":[
-     "space"
-     ],
-     "src":"demo/img/pictures/13.jpg",
-     "date":"35 mins",
-     "like": true
-     },
-     {
-     "name":"Sky",
-     "groups":[
-     "space"
-     ],
-     "src":"demo/img/pictures/14.jpg",
-     "date":"2 mins"
-     }
-     ];*/
-
-    $scope.items = [{ title: 'Soccer coach',
-        serviceType: 'Recreational',
-        desc: 'After school soccer training',
-        price: '$14 by hour',
-        timeslot: '4 to 7',
-        providerName: 'Bane C',
-        business: 'N/A',
-        phoneNumber: '5975756456',
-        address:'Menlo Park',
-        Website:'baneccc@yahoo.com'
-    },
-        {
-            title: 'Rashas babysitting service',
-            serviceType: 'Babysitting',
-            desc: 'A baby sitting service',
-            price: '$9 by hour',
-            timeslot: '2 to 10',
-            providerName: 'Rasha Bynes',
-            business: 'N/A',
-            phoneNumber: '6708976541',
-            address:'Redwood city',
-            Website:'rashas@yahoo.com'
-
-        },
-        {
-            title: 'Babysitter',
-            serviceType: 'Babysitting',
-            desc: 'A baby sitting service',
-            price: '$12 by hour',
-            timeslot: '11 to 7',
-            providerName: 'Jenny',
-            business: 'N/A',
-            phoneNumber: '7899324555',
-            address:'Mountain View',
-            Website:'jennygirl@yahoo.com'
-        },
-        {
-            title: 'Eclectic school of music',
-            serviceType: 'Music',
-            desc: 'After school music classes',
-            price: '$14 by hour',
-            timeslot: '4 to 8',
-            providerName: 'Miriam F',
-            business: 'Eclectic school of music',
-            phoneNumber: '5975756456',
-            address:'Mountain View',
-            Website:'schoolofmusic@gmail.com'
-        },
-        {
-            title: 'Dentist',
-            serviceType: 'Healthcare',
-            desc: 'Let me check your teeth',
-            price: '$24 by hour',
-            timeslot: '2 to 5',
-            providerName: 'Bane C',
-            business: 'N/A',
-            phoneNumber: '5975756456',
-            address:'Menlo Park',
-            Website:'baneccc@yahoo.com'
-        }
-    ];
-
+appControllers.controller('LandingAppController', ['$scope', '$resource',function ($scope, $resource) {
+    $scope.items = $resource('demo/fake.json').query();
     $scope.activeGroup = 'all';
 
     $scope.order = 'asc';
@@ -454,5 +285,231 @@ appControllers.controller('LandingAppController', ['$scope', function ($scope) {
             }
         });
     })
+}]);
+
+/***Controller for the range***/
+appControllers.controller('RangeController', function($scope) {
+    $scope.onChange = 0;
+});
+
+
+/******Controller for history**********/
+
+appControllers.controller('HistoryController', function($scope){
+    //TODO: This is temporary data, should be removed NOT PRODUCTION DATA
+
+    var userHistory = {
+
+    }
+});
+
+
+/**
+ * Dynamic datatable controller for service used
+ */
+appControllers.controller('serviceUsedCtrl', ['$scope', '$resource', 'DTOptionsBuilder', 'DTColumnBuilder',function ($scope, $resource, DTOptionsBuilder, DTColumnBuilder) {
+    $.extend( $.fn.dataTableExt.oPagination, {
+        "bootstrap": {
+            "fnInit": function( oSettings, nPaging, fnDraw ) {
+                var oLang = oSettings.oLanguage.oPaginate;
+                var fnClickHandler = function ( e ) {
+                    e.preventDefault();
+                    if ( oSettings.oApi._fnPageChange(oSettings, e.data.action) ) {
+                        fnDraw( oSettings );
+                    }
+                };
+
+                $(nPaging).append(
+                    '<ul class="pagination no-margin">'+
+                    '<li class="prev disabled"><a href="#">'+oLang.sPrevious+'</a></li>'+
+                    '<li class="next disabled"><a href="#">'+oLang.sNext+'</a></li>'+
+                    '</ul>'
+                );
+                var els = $('a', nPaging);
+                $(els[0]).bind( 'click.DT', { action: "previous" }, fnClickHandler );
+                $(els[1]).bind( 'click.DT', { action: "next" }, fnClickHandler );
+            },
+
+            "fnUpdate": function ( oSettings, fnDraw ) {
+                var iListLength = 5;
+                var oPaging = oSettings.oInstance.fnPagingInfo();
+                var an = oSettings.aanFeatures.p;
+                var i, ien, j, sClass, iStart, iEnd, iHalf=Math.floor(iListLength/2);
+
+                if ( oPaging.iTotalPages < iListLength) {
+                    iStart = 1;
+                    iEnd = oPaging.iTotalPages;
+                }
+                else if ( oPaging.iPage <= iHalf ) {
+                    iStart = 1;
+                    iEnd = iListLength;
+                } else if ( oPaging.iPage >= (oPaging.iTotalPages-iHalf) ) {
+                    iStart = oPaging.iTotalPages - iListLength + 1;
+                    iEnd = oPaging.iTotalPages;
+                } else {
+                    iStart = oPaging.iPage - iHalf + 1;
+                    iEnd = iStart + iListLength - 1;
+                }
+
+                for ( i=0, ien=an.length ; i<ien ; i++ ) {
+                    // Remove the middle elements
+                    $('li:gt(0)', an[i]).filter(':not(:last)').remove();
+
+                    // Add the new list items and their event handlers
+                    for ( j=iStart ; j<=iEnd ; j++ ) {
+                        sClass = (j==oPaging.iPage+1) ? 'class="active"' : '';
+                        $('<li '+sClass+'><a href="#">'+j+'</a></li>')
+                            .insertBefore( $('li:last', an[i])[0] )
+                            .bind('click', function (e) {
+                                e.preventDefault();
+                                oSettings._iDisplayStart = (parseInt($('a', this).text(),10)-1) * oPaging.iLength;
+                                fnDraw( oSettings );
+                            } );
+                    }
+
+                    // Add / remove disabled classes from the static elements
+                    if ( oPaging.iPage === 0 ) {
+                        $('li:first', an[i]).addClass('disabled');
+                    } else {
+                        $('li:first', an[i]).removeClass('disabled');
+                    }
+
+                    if ( oPaging.iPage === oPaging.iTotalPages-1 || oPaging.iTotalPages === 0 ) {
+                        $('li:last', an[i]).addClass('disabled');
+                    } else {
+                        $('li:last', an[i]).removeClass('disabled');
+                    }
+                }
+            }
+        }
+    } );
+
+    $scope.services = $resource('demo/fakeUsed.json').query();
+    $scope.dtOptions = DTOptionsBuilder.newOptions()
+        .withBootstrap()
+        .withOption('sDom', "<'row'<'col-md-6 hidden-xs'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>")
+        .withOption('oLanguage', {
+            "sLengthMenu": "_MENU_",
+            "sInfo": "Showing <strong>_START_ to _END_</strong> of _TOTAL_ entries"
+        })
+        .withOption('sPaginationType', "bootstrap")
+        .withOption('oClasses', {
+            "sFilter": "pull-right",
+            "sFilterInput": "form-control input-rounded ml-sm",
+            "sWrapper": "dataTables_wrapper form-inline",
+            "sLength": "dataTables_length blahblahcar"
+        })
+        .withOption('aoColumns', [null,null,{"bSortable": false}, null, null, {"bSortable": false}])
+        .withOption('initComplete', function(){
+            //bad but creating a separate directive for demo is stupid
+            $(".dataTables_length select").selectpicker({
+                width: 'auto'
+            });
+        });
+}]);
+
+
+/**
+ * Dynamic datatable controller for service posted
+ */
+appControllers.controller('servicePostedCtrl', ['$scope', '$resource', 'DTOptionsBuilder', 'DTColumnBuilder',function ($scope, $resource, DTOptionsBuilder, DTColumnBuilder) {
+    $.extend( $.fn.dataTableExt.oPagination, {
+        "bootstrap": {
+            "fnInit": function( oSettings, nPaging, fnDraw ) {
+                var oLang = oSettings.oLanguage.oPaginate;
+                var fnClickHandler = function ( e ) {
+                    e.preventDefault();
+                    if ( oSettings.oApi._fnPageChange(oSettings, e.data.action) ) {
+                        fnDraw( oSettings );
+                    }
+                };
+
+                $(nPaging).append(
+                    '<ul class="pagination no-margin">'+
+                    '<li class="prev disabled"><a href="#">'+oLang.sPrevious+'</a></li>'+
+                    '<li class="next disabled"><a href="#">'+oLang.sNext+'</a></li>'+
+                    '</ul>'
+                );
+                var els = $('a', nPaging);
+                $(els[0]).bind( 'click.DT', { action: "previous" }, fnClickHandler );
+                $(els[1]).bind( 'click.DT', { action: "next" }, fnClickHandler );
+            },
+
+            "fnUpdate": function ( oSettings, fnDraw ) {
+                var iListLength = 5;
+                var oPaging = oSettings.oInstance.fnPagingInfo();
+                var an = oSettings.aanFeatures.p;
+                var i, ien, j, sClass, iStart, iEnd, iHalf=Math.floor(iListLength/2);
+
+                if ( oPaging.iTotalPages < iListLength) {
+                    iStart = 1;
+                    iEnd = oPaging.iTotalPages;
+                }
+                else if ( oPaging.iPage <= iHalf ) {
+                    iStart = 1;
+                    iEnd = iListLength;
+                } else if ( oPaging.iPage >= (oPaging.iTotalPages-iHalf) ) {
+                    iStart = oPaging.iTotalPages - iListLength + 1;
+                    iEnd = oPaging.iTotalPages;
+                } else {
+                    iStart = oPaging.iPage - iHalf + 1;
+                    iEnd = iStart + iListLength - 1;
+                }
+
+                for ( i=0, ien=an.length ; i<ien ; i++ ) {
+                    // Remove the middle elements
+                    $('li:gt(0)', an[i]).filter(':not(:last)').remove();
+
+                    // Add the new list items and their event handlers
+                    for ( j=iStart ; j<=iEnd ; j++ ) {
+                        sClass = (j==oPaging.iPage+1) ? 'class="active"' : '';
+                        $('<li '+sClass+'><a href="#">'+j+'</a></li>')
+                            .insertBefore( $('li:last', an[i])[0] )
+                            .bind('click', function (e) {
+                                e.preventDefault();
+                                oSettings._iDisplayStart = (parseInt($('a', this).text(),10)-1) * oPaging.iLength;
+                                fnDraw( oSettings );
+                            } );
+                    }
+
+                    // Add / remove disabled classes from the static elements
+                    if ( oPaging.iPage === 0 ) {
+                        $('li:first', an[i]).addClass('disabled');
+                    } else {
+                        $('li:first', an[i]).removeClass('disabled');
+                    }
+
+                    if ( oPaging.iPage === oPaging.iTotalPages-1 || oPaging.iTotalPages === 0 ) {
+                        $('li:last', an[i]).addClass('disabled');
+                    } else {
+                        $('li:last', an[i]).removeClass('disabled');
+                    }
+                }
+            }
+        }
+    } );
+
+    $scope.services = $resource('demo/fakePosted.json').query();
+    $scope.dtOptions = DTOptionsBuilder.newOptions()
+        .withBootstrap()
+        .withOption('sDom', "<'row'<'col-md-6 hidden-xs'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>")
+        .withOption('oLanguage', {
+            "sLengthMenu": "_MENU_",
+            "sInfo": "Showing <strong>_START_ to _END_</strong> of _TOTAL_ entries"
+        })
+        .withOption('sPaginationType', "bootstrap")
+        .withOption('oClasses', {
+            "sFilter": "pull-right",
+            "sFilterInput": "form-control input-rounded ml-sm",
+            "sWrapper": "dataTables_wrapper form-inline",
+            "sLength": "dataTables_length blahblahcar"
+        })
+        .withOption('aoColumns', [null,null,{"bSortable": false}, null, null, {"bSortable": false}])
+        .withOption('initComplete', function(){
+            //bad but creating a separate directive for demo is stupid
+            $(".dataTables_length select").selectpicker({
+                width: 'auto'
+            });
+        });
 }]);
 

@@ -24,10 +24,13 @@
 </head>
 <!-- sn-demo directive enables all functions which are used for demo. e.g. animating notifications count, chat unread messages.
      to be removed in real app-->
-<body data-ng-controller="SingAppController" data-sn-demo data-ng-class="{'nav-static': app.state['nav-static'], 'login-page': loginPage, 'error-page': errorPage}">
+<body data-ng-controller="SingAppController" data-sn-demo=""
+      data-ng-class="{'nav-static': app.state['nav-static'], 'login-page': loginPage, 'error-page': errorPage}"
+        class="nav-collapsed">
 
-<div class="app" id="app" data-ui-view></div>
-
+<!-- uiView:  -->
+<div class="app ng-scope" id="app" data-ui-view="">
+</div>
 <!-- common libraries. required for every page-->
 
 <!-- include jquery BEFORE angular so $(el).html() may resolve scripts. see http://stackoverflow.com/a/12200540/1298418 -->
