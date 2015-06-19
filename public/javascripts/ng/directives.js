@@ -683,7 +683,7 @@ appDirectives.directive('rangeChange', function() {
 });
 
 
-/***The directive on change on range element in the advanced searcg***/
+
 /**
  * Flatlogic comment:
  * Here goes an extension to jQuery Passthrough(http://angular-ui.github.io/ui-utils/) plugin.

@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
 
-</body>
-</html>
+
+        <div class="col-md-4">
+
+            <section class="widget callout border-callout">
+                <b class="border-notch notch"></b>
+                <b class="notch"></b>
+                <div class = "form-group">
+                    <form>
+                        <div class="form-group">
+                            <!-- Name -->
+                            <label for="uname">Name</label>
+                            <input type="text" id="uname" name="uname"
+                                   placeholder="" class="form-control"
+                                   data-parsley-trigger="change"
+                                   required="required">
+                            <span class="help-block">Please provide your name</span>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Comments -->
+                            <label for="comments">Comments</label>
+                            <div><textarea rows = "5" cols="30"
+                                      id="comments"
+                                      name = "comments">
+
+                            </textarea>
+                            </div>
+                            <span class="help-block">Leave your comments here</span>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-danger btn-rounded">Submit review</button>
+                            <button type="button" class="btn btn-default btn-rounded pull-right">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+        </div>

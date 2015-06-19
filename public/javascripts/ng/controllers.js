@@ -293,16 +293,6 @@ appControllers.controller('RangeController', function($scope) {
 });
 
 
-/******Controller for history**********/
-
-appControllers.controller('HistoryController', function($scope){
-    //TODO: This is temporary data, should be removed NOT PRODUCTION DATA
-
-    var userHistory = {
-
-    }
-});
-
 
 /**
  * Dynamic datatable controller for service used
@@ -511,5 +501,13 @@ appControllers.controller('servicePostedCtrl', ['$scope', '$resource', 'DTOption
                 width: 'auto'
             });
         });
+}]);
+
+/**Dynamic controller for a review***/
+
+
+appControllers.controller('reviewCtrl', ['$scope',function ($scope) {
+
+
 }]);
 

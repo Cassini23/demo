@@ -27,12 +27,20 @@
                     <th class="no-sort">Description</th>
                     <th class="no-sort">Price</th>
                     <th class="hidden-xs">Provided by</th>
-                    <th class="no-sort">Website</th>
+                    <th class="no-sort">email</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr data-ng-repeat="service in services">
-                    <td class="hidden-xs">{{service.title}}</td>
+                    <td class="hidden-xs">
+                        <a class = "title review" ng-model="clicked" ng-init="clicked=false" >
+                            {{service.title}}
+                        </a>
+                        <div class="review-box" ng-if="clicked">
+                            <script>console.log('Ws clicked!');</script>
+                        </div>
+
+                    </td>
                     <td class="hidden-xs"><span class="fw-semi-bold">{{service.serviceType}}</span></td>
                     <td class="no-sort">
                         <small>
@@ -40,8 +48,8 @@
                         </small>
                     </td>
                     <td class="no-sort">{{service.price}}</td>
-                    <td class="hidden-xs">{{service.providerName}}</td>
-                    <td class="hidden-xs"><a href="#">{{service.Website}}</a></td>
+                    <td class="hidden-xs"><a data-ui-sref="app.page({ page: '_persona', child: null })"> {{service.providerName}} </a></td>
+                    <td class="hidden-xs"><a data-ui-sref="app.page({ page: '_email', child: null })">{{service.Website}}</a></td>
                 </tr>
                 </tbody>
             </table>

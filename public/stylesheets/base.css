@@ -10,10 +10,13 @@
 .landing.li{
     padding: auto;
 }
-.caption.landing{
-    background-color: #beb7ff;
-}
 
+.caption.landing{
+    background-color: #fcfff5;
+    color: #105b63;
+    border: 1px solid #3E606F;
+    border-radius: 25px;
+}
 #pulse:hover{
     -webkit-animation-name: pulser;
     -webkit-animation-iteration-count: 1;
@@ -51,4 +54,132 @@
     100%{
         box-shadow: 0 0 0 #888888;
     }
+}
+/*
+.bounded-border{
+    border: 2px solid #d3d3d3;
+    border-radius: 25px;
+    position: relative;
+}
+
+
+.arrow-up {
+
+    width: 0;
+    height: 0;
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+
+    border-bottom: 1em solid white;
+
+}
+
+.border-triangle-bottom{
+    border-bottom-color: white;
+}
+
+.border-callout { border: 1px solid #d3d3d3; padding: 17px 19px; }
+
+
+.notch {
+
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    margin: 0;
+    border-top: 0;
+    border-left: 15px solid #d3d3d3;
+    border-right: 15px solid #d3d3d3;
+    border-bottom: 15px solid #ffffff;
+    padding: 0;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    _border-right-color: #ffffff;
+    _border-left-color: #ffffff;
+
+}
+
+.border-notch { border-bottom-color: white; top: -16px; }*/
+
+.callout {
+    position: relative;
+    margin: 18px 0;
+    padding: 18px 20px;
+    background-color: white;
+    /* easy rounded corners for modern browsers */
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 25px;
+}
+.callout .notch {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    margin: 0;
+    border-top: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    padding: 0;
+    width: 0;
+    height: 0;
+    /* ie6 height fix */
+    font-size: 0;
+    line-height: 0;
+    /* ie6 transparent fix */
+    _border-right-color: pink;
+    _border-left-color: pink;
+    _filter: chroma(color=pink);
+}
+
+.border-callout { border: 1px solid #c5d9e8; padding: 17px 19px; }
+.border-callout .border-notch { border-bottom-color: #c5d9e8; top: -11px; }
+
+.persona-image{
+    background-size: contain;
+    height: 10em;
+    width: 10em;
+    margin: 1em;
+
+}
+
+.persona.list{
+    list-style-type: none;
+}
+div.persona.block {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
+div.persona.block:after{
+    content:'';
+    display:block;
+    clear:both;
+}
+
+.persona.left {
+    float: left;
+}
+
+.persona.right {
+    margin-left: 8em;
+}
+.persona-info{
+    border-bottom: 1px solid #d3d3d3;
+}
+.persona-parent{
+    background-color: #ffffff;
+}
+
+.persona-parent:after{
+    content:'';
+    display:block;
+    clear:both;
+}
+
+.persona-image{
+    margin: 1.5em;
 }

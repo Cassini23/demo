@@ -40,9 +40,10 @@
     <div class="row landing" data-ui-jq="magnificPopup"
          data-sn-gallery data-options="{ itemSelector: '.gallery-item'}"
          data-ui-options="{ delegate: '.thumbnail > a',  type: 'image', gallery: { enabled: true  } }">
-        <div data-ng-repeat="item in items | filter:searchText" id="pulse"
+        <div data-ng-repeat="item in items | filter:searchText"
              class="col-sm-6 col-md-3 gallery-item" data-groups='{{item.serviceType}}' data-title="{{item.title}}">
-            <div class="caption landing">
+
+            <div class="caption landing widget" id="pulse">
                 <h3 class="mt-0 mb-xs landing title">{{item.title}}</h3>
                 <ul class="landing list">
                     <li>Service type: <small>{{item.serviceType}}</small></li>
@@ -59,5 +60,6 @@
         </div>
         <div class="col-sm-6 col-md-3 js-shuffle-sizer"></div>
     </div>
+
 </div>
 </div>

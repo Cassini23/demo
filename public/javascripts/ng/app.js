@@ -68,6 +68,16 @@ singApp.config(function($stateProvider, $urlRouterProvider){
             templateUrl: 'views/error.html'
         })
 
+        .state('review', {
+            url: '/app/_servicesUsed/',
+            views:{
+                "viewA":{
+                    templateUrl: 'views/error.html'
+                }
+            }
+
+        })
+
 });
 
 singApp.value('uiJqDependencies', {
